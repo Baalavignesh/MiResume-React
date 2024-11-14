@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
   });
 
   let currentAssistant = "asst_4sDw2wvYdwqk6qVQpio1CDEq";
-  let currentThread = "thread_TEqIKeTLdI6Ngnz3G5I2eXl4";
+  let currentThread = "thread_Qb5fPLrF4CbW9cTpPJaaJ9Ny";
 
   let CreateOpenAI = async () => {
     // -------------------

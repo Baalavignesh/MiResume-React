@@ -37,7 +37,7 @@ const withAuth = (WrappedComponent: React.ComponentType<any>) => {
 
     if (loading) {
       return (
-        <div className="h-screen flex justify-center items-center bg-custom-black">
+        <div className="h-screen flex justify-center items-center bg-custom-white">
           <Loading />
         </div>
       );

@@ -1,12 +1,9 @@
 import NavBar from "../shared/navbar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setTokens } from "../features/auth/authSlice";
-import { clearLocalStorage } from "../helper/localStorage";
 import { MyAvatar } from "../assets";
 import { RootState } from "../store/store";
 import { Container } from "@mui/material";
-import { Button } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -27,8 +24,6 @@ const MyProfile: React.FC = () => {
   const { userInfo, email } = useSelector(
     (state: RootState) => state.authStore
   );
-
-
 
   const [educationOpen, setEducationOpen] = useState(false);
   const handleEducationOpen = () => setEducationOpen((cur) => !cur);
@@ -67,6 +62,36 @@ const MyProfile: React.FC = () => {
         {/* <div className="border-0 rounded-md p-4 flex flex-col gap-4 mt-12"> */}
         <div>
           <p className="text-blue-gray-700 mt-12 font-light bg-gray-100 pl-4 items-center text-2xl p-4  border-b-2 mb-2">
+            Social Link
+          </p>
+          <div className="flex gap-8">
+            <div className="font-normal ml-4 text-xl py-4">
+              <a
+                href={userInfo.linkedin}
+                target="_blank"
+                className="text-blue-300 underline"
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className="font-normal ml-4 text-xl py-4">
+              <a
+                href={userInfo.github}
+                target="_blank"
+                className="text-blue-300 underline"
+              >
+                GitHub
+              </a>
+              
+            </div>
+            <div className="font-normal ml-4 text-xl py-4">{userInfo.phone}</div>
+            <div className="font-normal ml-4 text-xl py-4">{userInfo.email}</div>
+
+          </div>
+        </div>
+
+        <div>
+          <p className="text-blue-gray-700 font-light bg-gray-100 pl-4 items-center text-2xl p-4  border-b-2 mb-2">
             Skills
           </p>
           <div className="font-normal ml-4 text-xl py-6">{userInfo.skills}</div>
@@ -165,7 +190,6 @@ const MyProfile: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            
             {userInfo.certifications &&
               userInfo.certifications.length > 0 &&
               userInfo.certifications.map(
